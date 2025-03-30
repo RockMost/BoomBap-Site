@@ -23,8 +23,7 @@
     }
 
     body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--color-white);
+      background-color: #0f0f0f;
       color: var(--color-black);
       line-height: 1.6;
     }
@@ -73,21 +72,27 @@
       padding: 4rem 2rem;
       max-width: 1000px;
       margin: auto;
+      background-color: #1c1c1c;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.05);
     }
 
     section h2 {
       font-family: 'Bebas Neue', cursive;
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin-bottom: 1rem;
-      color: var(--color-red);
+      color: var(--color-gold);
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
     }
 
     .event-card {
-      border: 2px solid var(--color-red);
+      border: 2px solid var(--color-gold);
       padding: 1.5rem;
       margin-top: 1rem;
       border-radius: 12px;
-      background-color: #fff9f9;
+      background-color: #2a2a2a;
+      color: var(--color-white);
     }
 
     .event-card h3 {
@@ -121,9 +126,11 @@
 
     form input, form textarea {
       padding: 0.75rem;
-      border: 1px solid #ccc;
+      border: 1px solid #444;
       border-radius: 6px;
       font-size: 1rem;
+      background-color: #1c1c1c;
+      color: var(--color-white);
     }
 
     form button {
@@ -186,11 +193,62 @@
       }
     }
 
+    .hero-bg {
+      position: relative;
+      height: 60vh;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .hero-overlay img {
+      max-width: 70%;
+      height: auto;
+      filter: drop-shadow(0 0 10px #f1c40f);
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        filter: drop-shadow(0 0 10px #f1c40f);
+      }
+      50% {
+        filter: drop-shadow(0 0 20px #f1c40f);
+      }
+      100% {
+        filter: drop-shadow(0 0 10px #f1c40f);
+      }
+    }
+
 </style>
 </head>
 <body>
   <header>
-    <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Back to the Boom Bap Logo">
+    <div class="hero-bg">
+      <video autoplay muted loop playsinline class="hero-video">
+        <source src="https://cdn.coverr.co/videos/coverr-night-club-dancing-3964/1080p.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay">
+        <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Back to the Boom Bap Logo">
+      </div>
+    </div>
     
   </header>
 
