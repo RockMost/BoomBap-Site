@@ -54,7 +54,9 @@
     nav {
       background-color: var(--color-red);
       padding: 1rem;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       position: sticky;
       top: 0;
       z-index: 999;
@@ -150,10 +152,21 @@
   </header>
 
   <nav>
-    <a href="#about">About</a>
+    <div style="display: flex; align-items: center;">
+      <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Logo Thumbnail" style="height: 40px; margin-right: 1rem;">
+      <div>
+        <a href="#about">About</a>
     <a href="#events">Events</a>
     <a href="#media">Media</a>
     <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div>
+      <a href="https://instagram.com/rockmost" target="_blank" style="margin-left: 1rem;">Instagram</a>
+      <a href="https://facebook.com/rockmost" target="_blank" style="margin-left: 1rem;">Facebook</a>
+      <a href="https://tiktok.com/@rockmost" target="_blank" style="margin-left: 1rem;">TikTok</a>
+      <a href="https://mixcloud.com/DJ_Lowe_Ki" target="_blank" style="margin-left: 1rem;">Mixcloud</a>
+    </div>
   </nav>
 
   <section id="about">
