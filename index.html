@@ -143,29 +143,61 @@
       padding: 2rem;
       font-size: 0.875rem;
     }
+      a, button {
+      transition: all 0.2s ease;
+    }
+
+    a:hover, button:hover {
+      color: var(--color-gold);
+      transform: scale(1.05);
+    }
+
+    nav img {
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    nav img:hover {
+      transform: scale(1.2);
+      filter: brightness(1.2);
+    }
+
+    nav {
+      animation: slideDown 0.6s ease forwards;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Back to the Boom Bap Logo">
-    <p style="margin-top: 1rem; font-size: 1.75rem; font-weight: 700; color: var(--color-gold); letter-spacing: 0.5px;">A Classic Hip Hop Experience</p>
+    
   </header>
 
   <nav>
     <div style="display: flex; align-items: center;">
-      <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Logo Thumbnail" style="height: 40px; margin-right: 1rem;">
-      <div>
+      <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Logo Thumbnail" style="height: 40px; margin-right: 1.5rem; border: 1px solid white; border-radius: 4px; background-color: white; padding: 2px;">
+      <div style="display: flex; justify-content: center; align-items: center; flex-grow: 1;">
         <a href="#about">About</a>
-    <a href="#events">Events</a>
-    <a href="#media">Media</a>
-    <a href="#contact">Contact</a>
+        <a href="#events">Events</a>
+        <a href="#media">Media</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
-    <div>
-      <a href="https://instagram.com/rockmost" target="_blank" style="margin-left: 1rem;">Instagram</a>
-      <a href="https://facebook.com/rockmost" target="_blank" style="margin-left: 1rem;">Facebook</a>
-      <a href="https://tiktok.com/@rockmost" target="_blank" style="margin-left: 1rem;">TikTok</a>
-      <a href="https://mixcloud.com/DJ_Lowe_Ki" target="_blank" style="margin-left: 1rem;">Mixcloud</a>
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <a href="https://instagram.com/rockmost" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height: 24px;"></a>
+      <a href="https://facebook.com/rockmost" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="height: 24px;"></a>
+      <a href="https://tiktok.com/@rockmost" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/69/TikTok_logo.svg" alt="TikTok" style="height: 24px;"></a>
+      <a href="https://mixcloud.com/DJ_Lowe_Ki" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Mixcloud_logo.svg" alt="Mixcloud" style="height: 24px;"></a>
     </div>
   </nav>
 
