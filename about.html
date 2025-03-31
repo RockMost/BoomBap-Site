@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Back to the Boom Bap</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-red: #E63946;
+      --color-gold: #F1C40F;
+      --color-black: #1C1C1C;
+      --color-white: #F7F7F7;
+      --color-orange: #F58220;
+      --color-green: #8BC53F;
+      --color-blue: #008CBA;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0f0f0f;
+      color: var(--color-black);
+      line-height: 1.6;
+    }
+
+    nav {
+      background-color: var(--color-red);
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav a {
+      color: var(--color-white);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-shadow: 0 0 5px var(--color-gold), 0 0 10px var(--color-gold);
+    }
+
+    nav img {
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    nav img:hover {
+      transform: scale(1.2);
+      filter: brightness(1.2);
+    }
+
+    .hero-bg {
+      position: relative;
+      height: 60vh;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .hero-overlay img {
+      max-width: 70%;
+      height: auto;
+      filter: drop-shadow(0 0 10px #f1c40f);
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0% { filter: drop-shadow(0 0 10px #f1c40f); }
+      50% { filter: drop-shadow(0 0 20px #f1c40f); }
+      100% { filter: drop-shadow(0 0 10px #f1c40f); }
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      background-color: #1c1c1c;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.05);
+      position: relative;
+      z-index: 1;
+    }
+
+    section h2 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--color-gold);
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    }
+
+    section p {
+      color: var(--color-white);
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background-color: var(--color-black);
+      color: var(--color-white);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.875rem;
+    }
+
+    a, button {
+      transition: all 0.2s ease;
+    }
+
+    a:hover, button:hover {
+      color: var(--color-gold);
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero-bg">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="https://cdn.coverr.co/videos/coverr-night-club-dancing-3964/1080p.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay">
+      <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Back to the Boom Bap Logo">
+    </div>
+  </div>
+
+  <nav>
+    <div style="display: flex; align-items: center; gap: 0.5rem; padding-left: 0.5rem;">
+      <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Logo Thumbnail" style="height: 40px; filter: drop-shadow(0 0 2px white);">
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; flex: 1;">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#events">Events</a>
+      <a href="index.html#media">Media</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div style="display: flex; align-items: center; gap: 0.5rem; padding-right: 0.5rem;">
+      <a href="https://instagram.com/boombapatl" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height: 24px;">
+      </a>
+      <a href="https://www.facebook.com/BackToTheBoomBap" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="height: 24px;">
+      </a>
+      <a href="https://tiktok.com/@boombapatl" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046122.png" alt="TikTok" style="height: 24px; filter: brightness(0) invert(1);">
+      </a>
+    </div>
+  </nav>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>Back To The Boom Bap is a high-energy dance party celebrating the Golden Era of Hip Hop, R&B, and Dancehall — the years 1988 to 1995. Featuring a curated lineup of skilled DJs, the event brings nostalgic vibes, authentic music, and a welcoming, energetic atmosphere to the dancefloor.</p>
+    <p>For a decade, Back to the Boom Bap (formerly Boom Bap Saturday), a legendary old-school and classic hip-hop event in Atlanta, brought together a diverse crowd of music lovers, creating an electric atmosphere of nostalgia and pure hip-hop energy. Known for its infectious vibe, the event celebrated the golden era of hip-hop with phenomenal DJs spinning classic tracks, live performances, and an undeniable sense of community.</p>
+    <p>It became a staple in the city's nightlife, attracting everyone from longtime hip-hop heads to newcomers eager to experience the culture. Year after year, people came out to vibe, dance, and connect, making it one of Atlanta's most beloved and enduring hip-hop gatherings.</p>
+  </section>
+
+  <footer>
+    <p style="font-weight: bold; font-size: 1rem; margin-bottom: 0.5rem;">Follow Us</p>
+    <div style="margin-bottom: 1rem; display: flex; justify-content: center; gap: 1rem; animation: fadeIn 1s ease forwards;">
+      <a href="https://instagram.com/boombapatl" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height: 24px;">
+      </a>
+      <a href="https://www.facebook.com/BackToTheBoomBap" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="height: 24px;">
+      </a>
+      <a href="https://tiktok.com/@boombapatl" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046122.png" alt="TikTok" style="height: 24px; filter: brightness(0) invert(1);">
+      </a>
+    </div>
+    <p>&copy; 2025 Back to the Boom Bap. All rights reserved.</p>
+  </footer>
+</body>
+</html>
