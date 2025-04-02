@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact | Back to the Boom Bap</title>
+  <title>Contact - Back to the Boom Bap</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;600;700&family=Montserrat&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -29,6 +28,12 @@
     .hero img {
       max-width: 50%;
       filter: drop-shadow(0 0 10px #f1c40f);
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+    @keyframes pulseGlow {
+      0% { filter: drop-shadow(0 0 10px #f1c40f); }
+      50% { filter: drop-shadow(0 0 20px #f1c40f); }
+      100% { filter: drop-shadow(0 0 10px #f1c40f); }
     }
     nav {
       background-color: var(--color-red);
@@ -39,6 +44,7 @@
       position: sticky;
       top: 0;
       z-index: 999;
+      font-family: 'Orbitron', sans-serif;
     }
     nav a {
       color: var(--color-white);
@@ -49,13 +55,9 @@
     nav a:hover {
       text-shadow: 0 0 5px var(--color-gold), 0 0 10px var(--color-gold);
     }
-    nav img {
-      height: 40px;
-      filter: drop-shadow(0 0 2px white);
-    }
     section {
       padding: 4rem 2rem;
-      max-width: 800px;
+      max-width: 1000px;
       margin: auto;
       background-color: #1c1c1c;
       border-radius: 12px;
@@ -64,14 +66,22 @@
     section h2 {
       font-family: 'Bebas Neue', cursive;
       font-size: 3rem;
+      margin-bottom: 1rem;
       color: var(--color-gold);
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+      animation: glitch 1.5s infinite;
+    }
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red, -2px 0 cyan; }
+      20% { text-shadow: -2px 0 red, 2px 0 cyan; }
+      40% { text-shadow: 2px 2px red, -2px -2px cyan; }
+      60% { text-shadow: -2px -2px red, 2px 2px cyan; }
+      80% { text-shadow: 2px -2px red, -2px 2px cyan; }
+      100% { text-shadow: 1px 1px #000; }
     }
     form {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      margin-top: 2rem;
     }
     form input, form textarea {
       padding: 0.75rem;
@@ -90,16 +100,15 @@
       border-radius: 6px;
       cursor: pointer;
     }
+    .message {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: var(--color-gold);
+    }
     footer {
       background-color: #1c1c1c;
       text-align: center;
       padding: 2rem;
-    }
-    .footer-social {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1rem;
     }
   </style>
 </head>
@@ -108,15 +117,17 @@
     <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Back to the Boom Bap Logo">
   </div>
   <nav>
-    <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Logo Thumbnail">
-    <div>
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Logo" style="height: 40px; filter: drop-shadow(0 0 2px white);">
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; flex: 1;">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="events.html">Events</a>
       <a href="media.html">Media</a>
       <a href="contact.html">Contact</a>
     </div>
-    <div class="footer-social">
+    <div style="display: flex; align-items: center; gap: 0.5rem; padding-right: 0.5rem;">
       <a href="https://instagram.com/boombapatl" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height: 24px;">
       </a>
@@ -128,54 +139,60 @@
       </a>
     </div>
   </nav>
-  <section>
+  <section id="contact">
     <h2>Contact</h2>
     <p>Have a question or want to book the party? Reach out using the form below:</p>
-    <form id="contactForm">
-      <input type="text" id="name" placeholder="Your Name" required />
-      <input type="email" id="email" placeholder="Your Email" required />
-      <input type="tel" id="phone" placeholder="Your Phone (optional)" />
-      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="phone" placeholder="Phone Number (optional)">
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
-      <div id="response" style="margin-top:1rem;"></div>
+      <div class="message" id="form-message"></div>
     </form>
   </section>
   <footer>
-    <p><strong>Follow Us</strong></p>
-    <div class="footer-social">
-      <a href="https://instagram.com/boombapatl" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height: 24px;"></a>
-      <a href="https://www.facebook.com/BackToTheBoomBap" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="height: 24px;"></a>
-      <a href="https://tiktok.com/@boombapatl" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046122.png" alt="TikTok" style="height: 24px; filter: brightness(0) invert(1);"></a>
+    <p style="font-weight: bold; font-size: 1rem; margin-bottom: 0.5rem;">Follow Us</p>
+    <div style="margin-bottom: 1rem; display: flex; justify-content: center; gap: 1rem;">
+      <a href="https://instagram.com/boombapatl" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height: 24px;">
+      </a>
+      <a href="https://www.facebook.com/BackToTheBoomBap" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="height: 24px;">
+      </a>
+      <a href="https://tiktok.com/@boombapatl" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046122.png" alt="TikTok" style="height: 24px; filter: brightness(0) invert(1);">
+      </a>
     </div>
-    <p style="margin-top:1rem;">&copy; 2025 Back to the Boom Bap. All rights reserved.</p>
+    <p style="color: var(--color-white); margin-top: 1rem;">&copy; 2025 Back to the Boom Bap. All rights reserved.</p>
   </footer>
   <script>
-    document.getElementById("contactForm").addEventListener("submit", async function (e) {
+    document.getElementById('contact-form').addEventListener('submit', async function (e) {
       e.preventDefault();
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const phone = document.getElementById("phone").value;
-      const message = document.getElementById("message").value;
-      const responseBox = document.getElementById("response");
-      responseBox.style.color = "#FFD700";
+      const form = e.target;
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        message: form.message.value
+      };
 
-      try {
-        const res = await fetch("https://5yfwe7isf9.execute-api.us-east-1.amazonaws.com/prod/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, email, phone, message })
-        });
+      const res = await fetch('https://5yfwe7isf9.execute-api.us-east-1.amazonaws.com/prod/contact/post', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
 
+      const msgEl = document.getElementById('form-message');
+      if (res.ok) {
+        msgEl.textContent = 'Your message has been sent!';
+        form.reset();
+      } else {
         const data = await res.json();
-        if (res.ok) {
-          responseBox.textContent = "Message sent successfully!";
-        } else {
-          responseBox.textContent = "Error: " + (data.message || "Something went wrong.");
-        }
-      } catch (err) {
-        responseBox.textContent = "Network error. Please try again.";
+        msgEl.textContent = data?.error || 'Failed to send message.';
       }
     });
   </script>
 </body>
 </html>
+
