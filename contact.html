@@ -1,119 +1,120 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - Back to the Boom Bap</title>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Contact | Back to the Boom Bap</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Inter&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #111;
-      color: #fff;
       font-family: 'Inter', sans-serif;
-      padding: 2rem;
-      max-width: 800px;
-      margin: 0 auto;
+      background-color: #111;
+      color: white;
+      margin: 0;
+      padding: 0;
     }
-    h1 {
-      font-family: 'Anton', sans-serif;
-      font-size: 3rem;
-      margin-bottom: 1rem;
+    header, footer {
+      background-color: #000;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.5rem;
       color: #FFD700;
-      text-shadow: 2px 2px #FF0000;
+      text-shadow: 2px 2px #FF4136;
     }
-    label {
-      display: block;
-      margin-top: 1rem;
-      font-weight: 600;
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
     }
     input, textarea {
       width: 100%;
       padding: 0.75rem;
-      margin-top: 0.5rem;
-      background: #222;
+      margin-bottom: 1rem;
       border: 1px solid #444;
-      color: #fff;
+      background: #1a1a1a;
+      color: white;
       font-size: 1rem;
-      border-radius: 4px;
     }
     button {
+      width: 100%;
       background: #e53935;
       color: white;
+      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
       border: none;
-      padding: 1rem 2rem;
-      margin-top: 1.5rem;
-      font-size: 1rem;
-      border-radius: 4px;
       cursor: pointer;
-      font-weight: 600;
+    }
+    .error, .success {
+      margin-top: 1rem;
+      font-weight: bold;
     }
     .error {
-      color: red;
-      margin-top: 1rem;
+      color: #ff5252;
     }
     .success {
-      color: green;
-      margin-top: 1rem;
+      color: #00e676;
     }
   </style>
 </head>
 <body>
-  <h1>CONTACT</h1>
-  <p>Have a question or want to book the party? Reach out using the form below:</p>
-  <form id="contactForm">
-    <label for="name">Your Name</label>
-    <input type="text" id="name" required />
-
-    <label for="email">Your Email</label>
-    <input type="email" id="email" required />
-
-    <label for="phone">Your Phone (optional)</label>
-    <input type="text" id="phone" />
-
-    <label for="message">Message</label>
-    <textarea id="message" rows="5" required></textarea>
-
-    <button type="submit">Send Message</button>
-
-    <div id="response" class="error" style="display: none;"></div>
-  </form>
-
+  <header>
+    <h1>CONTACT</h1>
+  </header>
+  <main>
+    <p>Have a question or want to book the party? Reach out using the form below:</p>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <input type="tel" id="phone" placeholder="Your Phone (optional)" />
+      <textarea id="message" rows="6" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+      <div class="error" id="error"></div>
+      <div class="success" id="success"></div>
+    </form>
+  </main>
+  <footer>
+    &copy; Back to the Boom Bap
+  </footer>
   <script>
-    document.getElementById("contactForm").addEventListener("submit", async function (e) {
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
       e.preventDefault();
+      const errorDiv = document.getElementById('error');
+      const successDiv = document.getElementById('success');
+      errorDiv.textContent = '';
+      successDiv.textContent = '';
 
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const phone = document.getElementById("phone").value;
-      const message = document.getElementById("message").value;
-
-      const responseBox = document.getElementById("response");
-      responseBox.style.display = "none";
+      const data = {
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        message: document.getElementById('message').value.trim(),
+      };
 
       try {
         const res = await fetch("https://5yfwe7isf9.execute-api.us-east-1.amazonaws.com/prod/contact", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, email, phone, message }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
         });
 
-        const data = await res.json();
-
-        if (!res.ok) {
-          throw new Error(data.message || "Something went wrong");
+        const result = await res.json();
+        if (res.ok) {
+          successDiv.textContent = result.message || "Message sent successfully!";
+          document.getElementById('contactForm').reset();
+        } else {
+          errorDiv.textContent = result.message || "Error: Failed to send message";
         }
-
-        responseBox.textContent = "Message sent successfully!";
-        responseBox.className = "success";
-        responseBox.style.display = "block";
-        document.getElementById("contactForm").reset();
       } catch (err) {
-        responseBox.textContent = "Error: " + err.message;
-        responseBox.className = "error";
-        responseBox.style.display = "block";
+        errorDiv.textContent = "Network error. Please try again later.";
       }
     });
   </script>
 </body>
 </html>
-
