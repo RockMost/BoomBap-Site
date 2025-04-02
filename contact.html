@@ -5,114 +5,175 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Back to the Boom Bap</title>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Inter&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;600;700&family=Montserrat&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --color-red: #E63946;
+      --color-gold: #F1C40F;
+      --color-black: #1C1C1C;
+      --color-white: #F7F7F7;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #111;
-      color: white;
-      margin: 0;
-      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0f0f0f;
+      color: var(--color-white);
     }
-    header, footer {
-      background-color: #000;
-      padding: 1rem 2rem;
-      text-align: center;
+    .hero {
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
     }
-    header h1 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 2.5rem;
-      color: #FFD700;
-      text-shadow: 2px 2px #FF4136;
+    .hero img {
+      max-width: 50%;
+      filter: drop-shadow(0 0 10px #f1c40f);
     }
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 2rem;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border: 1px solid #444;
-      background: #1a1a1a;
-      color: white;
-      font-size: 1rem;
-    }
-    button {
-      width: 100%;
-      background: #e53935;
-      color: white;
+    nav {
+      background-color: var(--color-red);
       padding: 1rem;
-      font-size: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav a {
+      color: var(--color-white);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-shadow: 0 0 5px var(--color-gold), 0 0 10px var(--color-gold);
+    }
+    nav img {
+      height: 40px;
+      filter: drop-shadow(0 0 2px white);
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: auto;
+      background-color: #1c1c1c;
+      border-radius: 12px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    section h2 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 3rem;
+      color: var(--color-gold);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    form input, form textarea {
+      padding: 0.75rem;
+      border: 1px solid #444;
+      border-radius: 6px;
+      font-size: 1rem;
+      background-color: #1c1c1c;
+      color: var(--color-white);
+    }
+    form button {
+      background-color: var(--color-red);
+      color: white;
+      padding: 0.75rem;
       font-weight: bold;
       border: none;
+      border-radius: 6px;
       cursor: pointer;
     }
-    .error, .success {
+    footer {
+      background-color: #1c1c1c;
+      text-align: center;
+      padding: 2rem;
+    }
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
       margin-top: 1rem;
-      font-weight: bold;
-    }
-    .error {
-      color: #ff5252;
-    }
-    .success {
-      color: #00e676;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>CONTACT</h1>
-  </header>
-  <main>
+  <div class="hero">
+    <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Back to the Boom Bap Logo">
+  </div>
+  <nav>
+    <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Logo Thumbnail">
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="media.html">Media</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://instagram.com/boombapatl" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height: 24px;">
+      </a>
+      <a href="https://www.facebook.com/BackToTheBoomBap" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="height: 24px;">
+      </a>
+      <a href="https://tiktok.com/@boombapatl" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046122.png" alt="TikTok" style="height: 24px; filter: brightness(0) invert(1);">
+      </a>
+    </div>
+  </nav>
+  <section>
+    <h2>Contact</h2>
     <p>Have a question or want to book the party? Reach out using the form below:</p>
     <form id="contactForm">
       <input type="text" id="name" placeholder="Your Name" required />
       <input type="email" id="email" placeholder="Your Email" required />
       <input type="tel" id="phone" placeholder="Your Phone (optional)" />
-      <textarea id="message" rows="6" placeholder="Your Message" required></textarea>
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
-      <div class="error" id="error"></div>
-      <div class="success" id="success"></div>
+      <div id="response" style="margin-top:1rem;"></div>
     </form>
-  </main>
+  </section>
   <footer>
-    &copy; Back to the Boom Bap
+    <p><strong>Follow Us</strong></p>
+    <div class="footer-social">
+      <a href="https://instagram.com/boombapatl" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height: 24px;"></a>
+      <a href="https://www.facebook.com/BackToTheBoomBap" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="height: 24px;"></a>
+      <a href="https://tiktok.com/@boombapatl" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046122.png" alt="TikTok" style="height: 24px; filter: brightness(0) invert(1);"></a>
+    </div>
+    <p style="margin-top:1rem;">&copy; 2025 Back to the Boom Bap. All rights reserved.</p>
   </footer>
   <script>
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    document.getElementById("contactForm").addEventListener("submit", async function (e) {
       e.preventDefault();
-      const errorDiv = document.getElementById('error');
-      const successDiv = document.getElementById('success');
-      errorDiv.textContent = '';
-      successDiv.textContent = '';
-
-      const data = {
-        name: document.getElementById('name').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        phone: document.getElementById('phone').value.trim(),
-        message: document.getElementById('message').value.trim(),
-      };
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const message = document.getElementById("message").value;
+      const responseBox = document.getElementById("response");
+      responseBox.style.color = "#FFD700";
 
       try {
         const res = await fetch("https://5yfwe7isf9.execute-api.us-east-1.amazonaws.com/prod/contact", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, phone, message })
         });
 
-        const result = await res.json();
+        const data = await res.json();
         if (res.ok) {
-          successDiv.textContent = result.message || "Message sent successfully!";
-          document.getElementById('contactForm').reset();
+          responseBox.textContent = "Message sent successfully!";
         } else {
-          errorDiv.textContent = result.message || "Error: Failed to send message";
+          responseBox.textContent = "Error: " + (data.message || "Something went wrong.");
         }
       } catch (err) {
-        errorDiv.textContent = "Network error. Please try again later.";
+        responseBox.textContent = "Network error. Please try again.";
       }
     });
   </script>
