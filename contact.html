@@ -1,174 +1,119 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact - Back to the Boom Bap</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;600;700&family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --color-red: #E63946;
-      --color-gold: #F1C40F;
-      --color-black: #1C1C1C;
-      --color-white: #F7F7F7;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Orbitron', sans-serif;
-      background-color: #0f0f0f;
-      color: var(--color-white);
+      background-color: #111;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
     }
-    .hero {
-      background: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem 1rem;
+    h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #FFD700;
+      text-shadow: 2px 2px #FF0000;
     }
-    .hero img {
-      max-width: 50%;
-      filter: drop-shadow(0 0 10px #f1c40f);
-      animation: pulseGlow 2s infinite ease-in-out;
-    }
-    @keyframes pulseGlow {
-      0% { filter: drop-shadow(0 0 10px #f1c40f); }
-      50% { filter: drop-shadow(0 0 20px #f1c40f); }
-      100% { filter: drop-shadow(0 0 10px #f1c40f); }
-    }
-    nav {
-      background-color: var(--color-red);
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    nav a {
-      color: var(--color-white);
-      text-decoration: none;
-      margin: 0 1rem;
+    label {
+      display: block;
+      margin-top: 1rem;
       font-weight: 600;
     }
-    nav a:hover {
-      text-shadow: 0 0 5px var(--color-gold), 0 0 10px var(--color-gold);
-    }
-    .form-container {
-      max-width: 800px;
-      margin: 4rem auto;
-      padding: 2rem;
-      background-color: #1c1c1c;
-      border-radius: 12px;
-      font-family: 'Montserrat', sans-serif;
-    }
-    .form-container h2 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 3rem;
-      color: var(--color-gold);
-      margin-bottom: 1rem;
-    }
-    .form-container input, .form-container textarea {
+    input, textarea {
       width: 100%;
-      padding: 0.8rem;
-      margin: 0.5rem 0;
-      background-color: #0f0f0f;
-      border: 1px solid #333;
-      color: white;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      background: #222;
+      border: 1px solid #444;
+      color: #fff;
+      font-size: 1rem;
+      border-radius: 4px;
     }
-    .form-container button {
-      background-color: var(--color-red);
+    button {
+      background: #e53935;
       color: white;
       border: none;
       padding: 1rem 2rem;
-      margin-top: 1rem;
-      font-weight: bold;
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      border-radius: 4px;
       cursor: pointer;
-      width: 100%;
+      font-weight: 600;
     }
-    .form-container button:hover {
-      background-color: #cc2e38;
-    }
-    footer {
-      background-color: #1c1c1c;
-      padding: 2rem;
-      text-align: center;
-    }
-    .footer-social {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-    .error, .success {
+    .error {
+      color: red;
       margin-top: 1rem;
-      text-align: center;
-      font-weight: bold;
     }
-    .error { color: red; }
-    .success { color: var(--color-gold); }
+    .success {
+      color: green;
+      margin-top: 1rem;
+    }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Boom Bap Logo">
-  </div>
-  <nav>
-    <div><a href="index.html">Home</a><a href="about.html">About</a><a href="events.html">Events</a><a href="media.html">Media</a><a href="contact.html">Contact</a></div>
-  </nav>
-  <div class="form-container">
-    <h2>Contact</h2>
-    <p>Have a question or want to book the party? Reach out using the form below:</p>
-    <form id="contactForm">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="tel" name="phone" placeholder="Your Phone (optional)">
-      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-      <div id="response" class="error"></div>
-    </form>
-  </div>
-  <footer>
-    <p>Follow Us</p>
-    <div class="footer-social">
-      <a href="https://instagram.com/boombapatl" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height: 24px;"></a>
-      <a href="https://www.facebook.com/BackToTheBoomBap" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="height: 24px;"></a>
-      <a href="https://tiktok.com/@boombapatl" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046122.png" alt="TikTok" style="height: 24px; filter: brightness(0) invert(1);"></a>
-    </div>
-    <p>&copy; 2025 Back to the Boom Bap. All rights reserved.</p>
-  </footer>
+  <h1>CONTACT</h1>
+  <p>Have a question or want to book the party? Reach out using the form below:</p>
+  <form id="contactForm">
+    <label for="name">Your Name</label>
+    <input type="text" id="name" required />
+
+    <label for="email">Your Email</label>
+    <input type="email" id="email" required />
+
+    <label for="phone">Your Phone (optional)</label>
+    <input type="text" id="phone" />
+
+    <label for="message">Message</label>
+    <textarea id="message" rows="5" required></textarea>
+
+    <button type="submit">Send Message</button>
+
+    <div id="response" class="error" style="display: none;"></div>
+  </form>
 
   <script>
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    document.getElementById("contactForm").addEventListener("submit", async function (e) {
       e.preventDefault();
-      const form = e.target;
-      const data = {
-        name: form.name.value,
-        email: form.email.value,
-        phone: form.phone.value,
-        message: form.message.value,
-      };
-      const responseDiv = document.getElementById('response');
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const message = document.getElementById("message").value;
+
+      const responseBox = document.getElementById("response");
+      responseBox.style.display = "none";
+
       try {
-        const res = await fetch('https://5yfwe7isf9.execute-api.us-east-1.amazonaws.com/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
+        const res = await fetch("https://5yfwe7isf9.execute-api.us-east-1.amazonaws.com/prod/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, phone, message }),
         });
-        const result = await res.json();
-        if (res.ok) {
-          responseDiv.className = 'success';
-          responseDiv.textContent = result.message;
-          form.reset();
-        } else {
-          throw new Error(result.message || 'Error sending message');
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.message || "Something went wrong");
         }
+
+        responseBox.textContent = "Message sent successfully!";
+        responseBox.className = "success";
+        responseBox.style.display = "block";
+        document.getElementById("contactForm").reset();
       } catch (err) {
-        responseDiv.className = 'error';
-        responseDiv.textContent = 'Error: ' + err.message;
+        responseBox.textContent = "Error: " + err.message;
+        responseBox.className = "error";
+        responseBox.style.display = "block";
       }
     });
   </script>
 </body>
 </html>
+
