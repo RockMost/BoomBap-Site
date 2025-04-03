@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Back to the Boom Bap</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Orbitron:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Back to the Boom Bap</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
     :root {
       --color-red: #E63946;
       --color-gold: #F1C40F;
@@ -21,6 +21,7 @@
     }
 
     body {
+  overflow-x: hidden;
       font-family: 'Orbitron', sans-serif;
       background-color: #0f0f0f;
       color: var(--color-white);
@@ -110,6 +111,20 @@
     }
 
     @media screen and (max-width: 768px) {
+  header img {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    display: block;
+    margin: 0.5rem;
+  }
       nav {
         flex-direction: column;
         padding: 1rem 0.5rem;
@@ -119,62 +134,36 @@
         margin: 0.5rem;
       }
     }
-  
-    @media screen and (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-      }
-
-      nav a {
-        margin: 0.5rem;
-      }
-
-      .media-gallery {
-        grid-template-columns: 1fr !important;
-      }
-
-      header img {
-        width: 90%;
-        max-width: 300px;
-      }
-
-      section {
-        padding: 2rem 1rem;
-      }
-
-      footer .social a img {
-        width: 20px !important;
-      }
-    }
-    </style>
+  </style>
 </head>
 <body>
-<header>
-<img alt="Back to the Boom Bap Logo" src="images/BOOMBAP12-orange-HIRES.png"/>
-</header>
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="events.html">Events</a>
-<a href="media.html">Media</a>
-<a href="contact.html">Contact</a>
-<a href="https://instagram.com/boombapatl" target="_blank"><img alt="Instagram" src="images/instagram-icon.png" width="20"/></a>
-<a href="https://facebook.com/BackToTheBoomBap" target="_blank"><img alt="Facebook" src="images/facebook-icon.png" width="20"/></a>
-<a href="https://tiktok.com/@boombapatl" target="_blank"><img alt="TikTok" src="images/tiktok-icon.png" width="20"/></a>
-</nav>
-<section>
-<h2>Welcome</h2>
-<p>This is a sample body for the responsive index page. All styling, layout, and effects are preserved. We’re just making sure it looks great on phones and tablets now too!</p>
-</section>
-<footer>
-<div class="social">
-<a href="https://instagram.com/boombapatl" target="_blank"><img alt="Instagram" src="images/instagram-icon.png" width="24"/></a>
-<a href="https://facebook.com/BackToTheBoomBap" target="_blank"><img alt="Facebook" src="images/facebook-icon.png" width="24"/></a>
-<a href="https://tiktok.com/@boombapatl" target="_blank"><img alt="TikTok" src="images/tiktok-icon.png" width="24"/></a>
-</div>
-<p>© 2025 Back to the Boom Bap. All rights reserved.</p>
-</footer>
+  <header>
+    <img src="images/BOOMBAP12-orange-HIRES.png" alt="Back to the Boom Bap Logo">
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="events.html">Events</a>
+    <a href="media.html">Media</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://instagram.com/boombapatl" target="_blank"><img src="images/instagram-icon.png" alt="Instagram" width="20"></a>
+    <a href="https://facebook.com/BackToTheBoomBap" target="_blank"><img src="images/facebook-icon.png" alt="Facebook" width="20"></a>
+    <a href="https://tiktok.com/@boombapatl" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok" width="20"></a>
+  </nav>
+
+  <section>
+    <h2>Welcome</h2>
+    <p>This is a sample body for the responsive index page. All styling, layout, and effects are preserved. We’re just making sure it looks great on phones and tablets now too!</p>
+  </section>
+
+  <footer>
+    <div class="social">
+      <a href="https://instagram.com/boombapatl" target="_blank"><img src="images/instagram-icon.png" alt="Instagram" width="24"></a>
+      <a href="https://facebook.com/BackToTheBoomBap" target="_blank"><img src="images/facebook-icon.png" alt="Facebook" width="24"></a>
+      <a href="https://tiktok.com/@boombapatl" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok" width="24"></a>
+    </div>
+    <p>&copy; 2025 Back to the Boom Bap. All rights reserved.</p>
+  </footer>
 </body>
 </html>
