@@ -29,11 +29,11 @@
       padding: 0.5rem 1rem;
       flex-wrap: wrap;
     }
-    nav img {
+    nav img.logo-icon {
       height: 40px;
       margin-right: 1rem;
     }
-    nav div {
+    nav .nav-links {
       display: flex;
       align-items: center;
       gap: 1rem;
@@ -95,14 +95,11 @@
         flex-direction: column;
         align-items: center;
       }
-      nav img {
+      nav img.logo-icon {
         margin-bottom: 1rem;
       }
-      nav div {
+      nav .nav-links {
         justify-content: center;
-      }
-      body {
-        padding: 0;
       }
       .container {
         width: 100%;
@@ -117,8 +114,8 @@
   </div>
 
   <nav>
-    <img src="images/boom-bap-icon.png" alt="Logo Icon">
-    <div>
+    <img src="images/boom-bap-icon.png" alt="Logo Icon" class="logo-icon">
+    <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="events.html">Events</a>
@@ -181,4 +178,3 @@
   </script>
 </body>
 </html>
-
