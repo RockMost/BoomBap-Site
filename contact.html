@@ -6,11 +6,15 @@
   <title>Contact - Back to the Boom Bap</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;600;700&family=Montserrat&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
       background-color: #111;
       color: #fff;
+      overflow-x: hidden;
     }
     .hero img {
       width: 100%;
@@ -87,11 +91,22 @@
       margin: 0 0.5rem;
     }
     @media screen and (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav img {
+        margin-bottom: 1rem;
+      }
       nav div {
         justify-content: center;
       }
-      .hero img {
-        height: auto;
+      body {
+        padding: 0;
+      }
+      .container {
+        width: 100%;
+        padding: 1rem;
       }
     }
   </style>
@@ -119,36 +134,14 @@
     <section>
       <h2>Contact</h2>
       <p>Have a question or want to book the party? Reach out using the form below:</p>
-        <form id="contactForm">
-          <input type="text" name="name" placeholder="Your Name" required>
-          <input type="email" name="email" placeholder="Your Email" required>
-          <input type="text" name="phone" placeholder="Phone Number (optional)">
-          <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-        <div id="responseMessage" class="message"></div>
-        <script>
-        const form = document.getElementById('contactForm');
-        const responseMessage = document.getElementById('responseMessage');
-        form.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          const formData = new FormData(form);
-          const data = Object.fromEntries(formData);
-          try {
-            const res = await fetch('https://5yfwe7isf9.execute-api.us-east-1.amazonaws.com/prod/contact', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(data)
-            });
-            const result = await res.json();
-            responseMessage.textContent = result.message || 'Message sent!';
-            form.reset();
-          } catch (err) {
-            responseMessage.textContent = 'Error: Email failed to send';
-            console.error(err);
-          }
-        });
-        </script>
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="phone" placeholder="Phone Number (optional)">
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <div id="responseMessage" class="message"></div>
     </section>
   </div>
 
@@ -160,5 +153,32 @@
     </div>
     <p>&copy; 2025 Back to the Boom Bap. All rights reserved.</p>
   </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const responseMessage = document.getElementById('responseMessage');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
+      try {
+        const res = await fetch('https://5yfwe7isf9.execute-api.us-east-1.amazonaws.com/prod/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+        responseMessage.textContent = result.message || 'Message sent!';
+        form.reset();
+      } catch (err) {
+        responseMessage.textContent = 'Error: Email failed to send';
+        console.error(err);
+      }
+    });
+  </script>
 </body>
 </html>
+
