@@ -6,129 +6,151 @@
   <title>About - Back to the Boom Bap</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;600;700&family=Montserrat&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --color-red: #E63946;
+      --color-gold: #F1C40F;
+      --color-black: #1C1C1C;
+      --color-white: #F7F7F7;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #111;
-      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0f0f0f;
+      color: var(--color-white);
+    }
+    .hero {
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+      position: relative;
     }
     .hero img {
-      width: 100%;
-      height: auto;
-      display: block;
+      max-width: 50%;
+      filter: drop-shadow(0 0 10px #f1c40f);
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+    @keyframes pulseGlow {
+      0% {
+        filter: drop-shadow(0 0 10px #f1c40f);
+      }
+      50% {
+        filter: drop-shadow(0 0 20px #f1c40f);
+      }
+      100% {
+        filter: drop-shadow(0 0 10px #f1c40f);
+      }
     }
     nav {
-      background-color: #e63946;
+      background-color: var(--color-red);
+      padding: 1rem;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 0.5rem 1rem;
-      flex-wrap: wrap;
-    }
-    nav img {
-      height: 40px;
-      margin-right: 1rem;
-    }
-    nav div {
-      display: flex;
       align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
+      position: sticky;
+      top: 0;
+      z-index: 999;
       font-family: 'Orbitron', sans-serif;
     }
-    .container {
-      padding: 1rem;
-      max-width: 600px;
+    nav a {
+      color: var(--color-white);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-shadow: 0 0 5px var(--color-gold), 0 0 10px var(--color-gold);
+    }
+    nav img:hover {
+      transform: scale(1.2);
+      filter: brightness(1.2);
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
       margin: auto;
+      background-color: #1c1c1c;
+      border-radius: 12px;
+      font-family: 'Montserrat', sans-serif;
     }
     section h2 {
       font-family: 'Bebas Neue', cursive;
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      color: #fcd900;
-      text-shadow: 2px 2px #000;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    input, textarea {
-      padding: 0.75rem;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-    button {
-      background-color: #e63946;
-      color: white;
-      padding: 0.75rem;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    .message {
-      margin-top: 1rem;
-    }
-    footer {
-      background-color: #111;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    footer .social {
+      font-size: 3rem;
       margin-bottom: 1rem;
+      color: var(--color-gold);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+      animation: glitch 1.5s infinite;
     }
-    footer img {
-      margin: 0 0.5rem;
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red, -2px 0 cyan; }
+      20% { text-shadow: -2px 0 red, 2px 0 cyan; }
+      40% { text-shadow: 2px 2px red, -2px -2px cyan; }
+      60% { text-shadow: -2px -2px red, 2px 2px cyan; }
+      80% { text-shadow: 2px -2px red, -2px 2px cyan; }
+      100% { text-shadow: 1px 1px #000; }
     }
-    @media screen and (max-width: 768px) {
-      nav div {
-        justify-content: center;
-      }
-      .hero img {
-        height: auto;
-      }
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
   <div class="hero">
-    <img src="img/boom-bap-logo.png" alt="Back to the Boom Bap Logo">
+    <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Back to the Boom Bap Logo">
   </div>
-
   <nav>
-    <img src="img/boom-bap-icon.png" alt="Logo Icon">
-    <div>
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Logo" style="height: 40px; filter: drop-shadow(0 0 2px white);">
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; flex: 1;">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="events.html">Events</a>
       <a href="media.html">Media</a>
       <a href="contact.html">Contact</a>
-      <a href="https://instagram.com" target="_blank"><img src="img/instagram-icon.png" alt="Instagram" width="20"></a>
-      <a href="https://facebook.com" target="_blank"><img src="img/facebook-icon.png" alt="Facebook" width="20"></a>
-      <a href="https://tiktok.com" target="_blank"><img src="img/tiktok-icon.png" alt="TikTok" width="20"></a>
+    </div>
+    <div style="display: flex; align-items: center; gap: 0.5rem; padding-right: 0.5rem;">
+      <a href="https://instagram.com/boombapatl" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height: 24px;">
+      </a>
+      <a href="https://www.facebook.com/BackToTheBoomBap" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="height: 24px;">
+      </a>
+      <a href="https://tiktok.com/@boombapatl" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046122.png" alt="TikTok" style="height: 24px; filter: brightness(0) invert(1);">
+      </a>
     </div>
   </nav>
-
-  <div class="container">
-    <section>
-      <h2>About</h2>
-      <p>Learn more about our classic hip hop experience.</p>
-    </section>
-  </div>
-
-  <footer>
-    <div class="social">
-      <a href="https://instagram.com" target="_blank"><img src="img/instagram-icon.png" alt="Instagram" width="24"></a>
-      <a href="https://facebook.com" target="_blank"><img src="img/facebook-icon.png" alt="Facebook" width="24"></a>
-      <a href="https://tiktok.com" target="_blank"><img src="img/tiktok-icon.png" alt="TikTok" width="24"></a>
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      Back To The Boom Bap is a high-energy dance party celebrating the Golden Era of Hip Hop, R&B, and Dancehall — the years 1988 to 1995. Featuring a curated lineup of skilled DJs, the event brings nostalgic vibes, authentic music, and a welcoming, energetic atmosphere to the dancefloor.
+    </p>
+    <p>
+      For a decade, Back to the Boom Bap (formerly Boom Bap Saturday), a legendary old-school and classic hip-hop event in Atlanta, brought together a diverse crowd of music lovers, creating an electric atmosphere of nostalgia and pure hip-hop energy. Known for its infectious vibe, the event celebrated the golden era of hip-hop with phenomenal DJs spinning classic tracks, live performances, and an undeniable sense of community.
+    </p>
+    <p>
+      It became a staple in the city's nightlife, attracting everyone from longtime hip-hop heads to newcomers eager to experience the culture. Year after year, people came out to vibe, dance, and connect, making it one of Atlanta's most beloved and enduring hip-hop gatherings.
+    </p>
+  </section>
+  <footer style="background-color: #1c1c1c; padding: 2rem; text-align: center;">
+    <p style="font-weight: bold; font-size: 1rem; margin-bottom: 0.5rem;">Follow Us</p>
+    <div class="footer-social">
+      <a href="https://instagram.com/boombapatl" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height: 24px;">
+      </a>
+      <a href="https://www.facebook.com/BackToTheBoomBap" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="height: 24px;">
+      </a>
+      <a href="https://tiktok.com/@boombapatl" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046122.png" alt="TikTok" style="height: 24px; filter: brightness(0) invert(1);">
+      </a>
     </div>
-    <p>&copy; 2025 Back to the Boom Bap. All rights reserved.</p>
+    <p style="color: var(--color-white); margin-top: 1rem;">&copy; 2025 Back to the Boom Bap. All rights reserved.</p>
   </footer>
 </body>
 </html>
