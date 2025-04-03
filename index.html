@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +12,6 @@
       --color-gold: #F1C40F;
       --color-black: #1C1C1C;
       --color-white: #F7F7F7;
-      --color-orange: #F58220;
-      --color-green: #8BC53F;
-      --color-blue: #008CBA;
     }
 
     * {
@@ -26,7 +24,6 @@
       font-family: 'Orbitron', sans-serif;
       background-color: #0f0f0f;
       color: var(--color-white);
-      line-height: 1.6;
     }
 
     header {
@@ -78,7 +75,6 @@
       background-color: var(--color-red);
       padding: 1rem;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       position: sticky;
@@ -86,120 +82,59 @@
       z-index: 999;
     }
 
+    .nav-left, .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-center {
+      display: flex;
+      gap: 1rem;
+    }
+
     nav a {
       color: var(--color-white);
       text-decoration: none;
-      margin: 0.5rem 1rem;
       font-weight: 600;
     }
 
-    nav img {
-      height: 40px;
-      filter: drop-shadow(0 0 2px white);
-      transition: transform 0.3s ease;
-    }
-
-    nav img:hover {
-      transform: scale(1.2);
-    }
-
-    section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-      background-color: #1c1c1c;
-      border-radius: 12px;
-      margin-top: 2rem;
-    }
-
-    section h2 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--color-gold);
-      letter-spacing: 1px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-    }
-
-    .event-card, form {
-      background-color: #2a2a2a;
-      border: 2px solid var(--color-gold);
-      border-radius: 12px;
-      padding: 1.5rem;
-      color: var(--color-white);
-      margin-top: 1rem;
-    }
-
-    .event-card h3 {
-      color: var(--color-gold);
-    }
-
-    .media-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .media-gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .media-player iframe {
-      width: 100%;
-    }
-
-    form input, form textarea {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border: 1px solid #444;
-      border-radius: 6px;
-      background-color: #1c1c1c;
-      color: var(--color-white);
-    }
-
-    form button {
-      background-color: var(--color-red);
-      color: white;
-      padding: 0.75rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
+    .hamburger {
+      display: none;
+      flex-direction: column;
       cursor: pointer;
+      gap: 5px;
     }
 
-    footer {
-      background-color: var(--color-black);
-      color: var(--color-white);
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.875rem;
-      margin-top: 2rem;
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      border-radius: 3px;
     }
 
-    a:hover, button:hover {
-      color: var(--color-gold);
-      transform: scale(1.05);
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: var(--color-red);
+      padding: 1rem;
+    }
+
+    .mobile-menu a {
+      padding: 0.5rem 0;
     }
 
     @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
+      .nav-center {
+        display: none;
       }
 
-      nav > div {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-bottom: 0.5rem;
+      .hamburger {
+        display: flex;
       }
 
-      nav a {
-        margin: 0.5rem;
+      .mobile-menu.show {
+        display: flex;
       }
 
       .hero-bg {
@@ -208,14 +143,6 @@
 
       .hero-overlay img {
         max-width: 90%;
-      }
-
-      section {
-        padding: 2rem 1rem;
-      }
-
-      section h2 {
-        font-size: 2rem;
       }
     }
   </style>
@@ -233,77 +160,40 @@
   </header>
 
   <nav>
-    <div><img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Logo Thumbnail"></div>
-    <div>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Events</a>
-      <a href="#">Media</a>
-      <a href="#">Contact</a>
+    <div class="nav-left">
+      <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/BOOMBAP12-orange-HIRES.png" alt="Logo Thumbnail" style="height: 40px;">
     </div>
-    <div>
-      <a href="https://instagram.com/boombapatl" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height: 24px;">
-      </a>
-      <a href="https://www.facebook.com/BackToTheBoomBap" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="height: 24px;">
-      </a>
-      <a href="https://tiktok.com/@boombapatl" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046122.png" alt="TikTok" style="height: 24px; filter: brightness(0) invert(1);">
-      </a>
+
+    <div class="nav-center">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="media.html">Media</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="nav-right">
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </nav>
 
-  <section id="about">
-    <h2>About</h2>
-    <p><strong>Back To The Boom Bap</strong> is a high-energy dance party celebrating the Golden Era of Hip Hop, R&B, and Dancehall — the years 1988 to 1995.</p>
-  </section>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="events.html">Events</a>
+    <a href="media.html">Media</a>
+    <a href="contact.html">Contact</a>
+  </div>
 
-  <section id="events">
-    <h2>Events</h2>
-    <div class="event-card">
-      <h3>Next Party: Coming Soon!</h3>
-      <p>📍 Atlanta, GA<br>🎶 Classic Hip Hop Dancefloor Vibes<br>🕗 Doors at 9PM</p>
-    </div>
-    <div class="media-gallery">
-      <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/IMG_0632.jpg" alt="Event Crowd 1">
-      <img src="https://raw.githubusercontent.com/RockMost/BoomBap-Site/main/images/IMG_0577%20-%20Edited.jpg" alt="Event Crowd 2">
-    </div>
-  </section>
-
-  <section id="media">
-    <h2>Media</h2>
-    <div class="media-player">
-      <iframe height="120" frameborder="no" scrolling="no" allow="autoplay"
-        src="https://www.mixcloud.com/widget/iframe/?feed=https%3A%2F%2Fwww.mixcloud.com%2FDJ_Lowe_Ki%2Fback-to-the-boom-bap-march-30%2F&hide_cover=1&light=1">
-      </iframe>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <form action="#" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <footer>
-    <p style="font-weight: bold;">Follow Us</p>
-    <div style="margin: 1rem 0;">
-      <a href="https://instagram.com/boombapatl" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="height: 24px;">
-      </a>
-      <a href="https://www.facebook.com/BackToTheBoomBap" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="height: 24px;">
-      </a>
-      <a href="https://tiktok.com/@boombapatl" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046122.png" alt="TikTok" style="height: 24px; filter: brightness(0) invert(1);">
-      </a>
-    </div>
-    <p>&copy; 2025 Back to the Boom Bap. All rights reserved.</p>
-  </footer>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
